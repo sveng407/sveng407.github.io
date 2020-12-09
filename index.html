@@ -1,1 +1,239 @@
-Hello World
+<html>
+<head>
+<link rel="stylesheet" href="style.css">
+<style>
+    #searchbox {
+display: flex;
+justify-content: center;
+align-items: center;
+height: 85%;
+flex-direction: column;
+}
+
+.centerdiv {
+    padding: 18px 10px;
+}
+
+
+
+#searchbar {
+    position: relative;
+    display: flex;
+    min-width: 500px;
+}
+
+#searchicon {
+    position: absolute;
+    top:33px;
+    left: 30px;
+    width: 14px;
+    font-size: 17px;
+    color: rgb(138, 138, 138);
+}
+
+#voiceicon {
+    position: absolute;
+    top: 33px;
+    right: 30px;
+    cursor: pointer;
+    font-size: 20px;
+    /* visibility:hidden; */
+    background-image: linear-gradient(to top, rgb(69, 224, 55), rgb(221, 12, 12), rgb(0, 140, 255),rgb(0, 140, 255));
+    -webkit-background-clip: text;
+    color: transparent;
+}
+
+#searchinput {
+    border: 1px solid rgba(128, 128, 128, 0.24);
+    border-radius: 30px;
+    height: 50px;
+    width: 100%;
+    padding: 2px 23px 2px 55px;
+    outline: 0px;
+   
+}
+
+ #searchinput:hover, #searchinpiut:focus {
+     border: 1.5px solid #009688;
+     background-color: white;
+     box-shadow: 0px 2px 7px rgba(0, 0, 0, 0.144);
+     outline: 5px;
+     border: 1px solid  rgba(128, 128, 128, 0.24);
+ }
+
+#searchbutton, #luckybutton {
+     border: 0px;
+     padding: 10px 15px;
+     margin: 0px 5px;
+     background-color: rgba(128, 128, 128, 0.082);
+     border-radius: 3px;
+     font-size: 15px;
+ }
+
+ #searchbutton:hover, #luckybutton:hover {
+    box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.363);
+    border: 3px;
+    border-color: grey;
+    cursor: pointer;
+}
+
+#searchbutton:focus, #luckybutton:focus {
+    outline-color: rgba(11, 138, 242, 0.8);
+    outline-width: 0.1px; 
+    
+} 
+  
+#sharebutton {
+    font-size: 21px;
+    position: relative;
+    left: 50px;
+    cursor: pointer;
+}
+
+
+#logog:hover {
+    cursor: pointer;
+}
+
+.navheader {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    position: fixed;
+    top: 18px;
+    left: 20px;
+    right: 40px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 12px;
+    color: rgb(27, 27, 27);
+}
+
+#headleft {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 10em;
+}
+
+#headright {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 15em;
+}
+
+#userhead {
+    background-color: brown; 
+    border-radius: 50%;
+    border 5px solid red;
+    width: 30px;
+    height: 30px;
+    text-align: center;
+    color: white;
+    line-height: 30px;
+    position: relative;
+    bottom: 10px;
+    font-family: Arial, Helvetica, sans-serif;
+    
+}
+
+#appsicon {
+    font-size: 17px;
+    position: relative;
+    bottom: 2px;
+    }
+
+#footer {
+    display: flex;
+    flex-direction: row;
+    position: fixed;
+    left:0px;
+    right: 0px;
+    bottom: 0px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 12px;
+    color: rgb(27, 27, 27);
+    justify-content: space-between;
+    background-color: rgba(128, 128, 128, 0.199);
+    min-height: 2em;
+    font-size: 0.9em;
+    padding-top: 10px;
+    border-top: 1px solid rgba(151, 151, 151, 0.192);
+    flex-wrap: wrap;
+
+}
+
+.footerelement {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 10em;
+    padding: 0px 10px 10px 10px;
+    line-height: 20px;
+}
+
+
+</style>
+<script src="https://kit.fontawesome.com/8564f638fb.js" crossorigin="anonymous"></script>
+</head>
+<!-- header -->
+<div class="navheader">
+    <div id="headleft">
+
+            <div id="test">Über Google</div>
+            <div>Store</div>
+
+    </div>
+    <div id="headright">
+
+            <div>Gmail</div>
+            <div>Bilder</div>
+            <div><i id="appsicon" class="fas fa-th"></i></div>
+            <div id="userhead">S</div>
+
+    </div>
+
+
+</div>
+
+
+
+
+<!---- search field  -->
+
+<div id="searchbox" class="centerdiv">
+    <div id="logo" class="centerdiv"> 
+        <img id="logog" src="googlelogo_color_272x92dp.png" alt="Google Logo">
+        <i class="fas fa-share-alt sharebutton" style="color: #0d3fab;" id="sharebutton"></i>
+    </div>
+    <div id="searchbar" class="centerdiv">
+        <i class="fas fa-search" id="searchicon"></i>
+        <input id="searchinput" type="text" placeholder="Carbonara ">
+        <i class="fas fa-microphone" id="voiceicon"></i>
+    </div>
+    <div id="buttonbar" class="centerdiv">
+
+        <button id="searchbutton" class="buttons">Google Suche</button>
+        <button id="luckybutton" class="buttons">Auf gut Glück!</button>
+
+    </div>
+    <div id="langtext" class="centerdiv">
+        Google angeboten auf: Englisch 
+    </div>
+
+
+
+</div>
+
+<!-- footer -->
+
+<div id="footer" >
+    <div class="footerelement">Werbeprogramme</div>
+    <div class="footerelement">Unternehmen</div>
+    <div class="footerelement">Datenschutzerklärung</div>
+    <div class="footerelement">Nutzungsbedingungen</div>
+    <div class="footerelement">Einstellungen</div>
+</div>
+
+
+</html>
