@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+    <head>
+
+    </head>
+    <body>
+        <button id="rock">Rock</button>
+        <button id="paper">Paper</button>
+        <button id="scissors">Scissors</button>
+        <div id="result">
+            <p>Your Selection:</p>
+            <p id="playerSelectionP">-</p>
+            <p>Computer Selection:</p>
+            <p id="computerSelectionP">-</p>
+            <p>Your Score:</p> 
+            <p id="playerScoreP">0</p>
+            <p>Computer Score:</p>
+            <p id="computerScoreP">0</p>
+            <p>Round:</p>
+            <p id="roundP">0</p>
+            <p>Winner:</p>
+            <p id="winnerP">-</p>
+
+        </div>
+        <script>
+            const playerSelectionP = document.querySelector('#playerSelectionP');
+            const computerSelectionP = document.querySelector('#computerSelectionP');
+            const playerScoreP = document.querySelector('#playerScoreP');
+            const computerScoreP = document.querySelector('#computerScoreP');
+            const roundP = document.querySelector('#roundP');
+            const winnerP = document.querySelector('#winnerP');
+            
+            let roundCount = 0;
+            let playerScoreCount = 0;
+            let computerScoreCount = 0;
+            let roundOver = false;
+
+            function setOutput(playerSelection, computerSelection, winner) {
+                //test if round is over
+                if (roundOver) {
+                    roundCount = 0;
+                    playerScoreCount = 0;
+                    computerScoreCount = 0;
+                    roundOver = false;
+                    computerScoreP.textContent = computerScoreCount;
+                    playerScoreP.textContent = playerScoreCount;
+                }
+
+                //reset colors and winner
+                playerScoreP.style.color = "black";  
+                computerScoreP.style.color = "black";
+                winnerP.textContent = "-";
+
+                //output selections and round
+                playerSelectionP.textContent = playerSelection;
+                computerSelectionP.textContent = computerSelection;
+                roundP.textContent = ++roundCount;
+
+                //scoreCountsOutput
+                if (winner == "player") {
+                    playerScoreP.textContent = ++playerScoreCount;
+                    playerScoreP.style.color = "red";    
+                } else if (winner == "computer") {
+                    computerScoreP.textContent = ++computerScoreCount;
+                    computerScoreP.style.color = "red";
+                }
+
+                //test for 5 points
+                if (playerScoreCount == 5) {
+                    winnerP.textContent = "Player";
+                    roundOver = true;
+                } else if (computerScoreCount == 5) {
+                    winnerP.textContent = "Computer";
+                    roundOver = true;
+                }
+            }
+
+            //come up with computer selection
+            let computerSelection;
+            function computerPlay() {
+                randomNum = Math.random() * 3;
+                if (randomNum <= 1) {
+                    computerSelection = "rock";
+                    return computerSelection;
+                } else if (randomNum > 1 && randomNum <= 2) {
+                    computerSelection = "scissors";
+                    return computerSelection;
+                } else {
+                    computerSelection = "paper";
+                    return computerSelection;
+                }
+            };
+
+            //play one round of RPS
+            function singleRoundRPS(playerSel) {
+                computerSel = computerPlay();
+                if (playerSel == computerSel) {
+                    setOutput(playerSel, computerSel, "tie")
+                } else if (playerSel == "rock") {
+                    if (computerSel == "scissors") {
+                        setOutput(playerSel, computerSel, "player")
+                    } else {
+                        setOutput(playerSel, computerSel, "computer")
+                    };
+                } else if (playerSel == "paper") {
+                    if (computerSel == "rock") {
+                        setOutput(playerSel, computerSel, "player")
+                    } else {
+                        setOutput(playerSel, computerSel, "computer")
+                    };
+                } else if (playerSel == "scissors") {
+                    if (computerSel == "paper") {
+                        setOutput(playerSel, computerSel, "player")
+                    } else {
+                        setOutput(playerSel, computerSel, "computer")
+                    };
+                }
+            };
+
+            //buttons and listeners
+
+            const rockButton = document.querySelector('#rock'); 
+            const paperButton = document.querySelector('#paper'); 
+            const scissorsButton = document.querySelector('#scissors'); 
+
+            rockButton.addEventListener('click', function (){ singleRoundRPS("rock"); });
+            paperButton.addEventListener('click', function (){ singleRoundRPS("paper"); });
+            scissorsButton.addEventListener('click', function (){ singleRoundRPS("scissors"); });
+
+
+        </script>
+    </body>
+</html>
